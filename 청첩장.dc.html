@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  html, body { margin:0; padding:0; background:#E7DFD4; }
+  * { box-sizing:border-box; }
+  a { color:#8A5A46; text-decoration:none; }
+  a:hover { color:#5C3A2C; }
+  @keyframes beat { 0%,100%{transform:scale(1)} 50%{transform:scale(1.14)} }
+</style>
+</helmet>
+<div style="min-height:100%;background:#E7DFD4 url('assets/paper.png') repeat;display:flex;justify-content:center;font-family:'Gowun Batang',serif;color:#3E2E24;">
+<div style="width:100%;max-width:430px;background:#FBF8F4 url('assets/paper.png') repeat;box-shadow:0 0 40px rgba(62,46,36,.12);overflow:hidden;position:relative;">
+
+  <div style="position:relative;width:100%;">
+    <img src="assets/hero.png" alt="전영준 김가희 결혼합니다" style="display:block;width:100%;height:auto;" />
+    <button onClick="{{ toggleBgm }}" style="position:absolute;top:14px;right:14px;z-index:20;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.55);background:rgba(62,46,36,.35);color:#FFF;font-size:14px;line-height:1;cursor:pointer;padding:0;">{{ bgmIcon }}</button>
+  </div>
+
+  <div style="padding:54px 34px 46px;text-align:center;">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.42em;color:#A8917C;text-transform:uppercase;">Invitation</div>
+    <div style="width:1px;height:38px;background:#DECFBE;margin:22px auto 26px;"></div>
+    <p style="font-size:15.5px;line-height:2.35;letter-spacing:.01em;margin:0;color:#4B392E;text-wrap:pretty;">
+      서로가 마주 보며 다져온 사랑을<br />
+      이제 함께 한 곳을 바라보며<br />
+      걸어갈 수 있는 큰 사랑으로<br />
+      키우고자 합니다.
+    </p>
+    <p style="font-size:15.5px;line-height:2.35;margin:26px 0 0;color:#4B392E;">
+      저희 두 사람의 새로운 시작을<br />
+      귀한 걸음으로 축복해 주시면<br />
+      더없는 기쁨으로 간직하겠습니다.
+    </p>
+  </div>
+
+  <div style="padding:0 34px 46px;">
+    <div style="border-top:1px solid #E8DDCF;border-bottom:1px solid #E8DDCF;padding:30px 0;display:flex;flex-direction:column;gap:18px;font-size:15px;">
+      <div style="display:flex;align-items:baseline;justify-content:center;gap:8px;flex-wrap:wrap;">
+        <span style="color:#9A8571;font-size:13.5px;">전효상 · 김서영</span>
+        <span style="color:#C0AF9B;font-size:12.5px;">의 아들</span>
+        <span style="font-size:18px;font-weight:700;letter-spacing:.06em;">전영준</span>
+      </div>
+      <div style="display:flex;align-items:baseline;justify-content:center;gap:8px;flex-wrap:wrap;">
+        <span style="color:#9A8571;font-size:13.5px;">김상윤 · 윤영자</span>
+        <span style="color:#C0AF9B;font-size:12.5px;">의 딸</span>
+        <span style="font-size:18px;font-weight:700;letter-spacing:.06em;">김가희</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:0 26px 56px;">
+    <div style="border:1px solid #EDE3D6;background:#FFFDFA url('assets/paper.png') repeat;">
+      <button onClick="{{ toggleGroomTel }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:none;border:none;font-family:'Gowun Batang',serif;font-size:14.5px;color:#3E2E24;cursor:pointer;letter-spacing:.04em;">
+        <span>신랑측에 연락하기</span>
+        <span style="font-size:12px;color:#B7A38E;">{{ groomTelIcon }}</span>
+      </button>
+      <sc-if value="{{ groomTelOpen }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:0 20px 16px;display:flex;flex-direction:column;font-family:'Noto Sans KR',sans-serif;">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 0;border-top:1px dashed #EDE3D6;">
+            <div style="font-size:13px;color:#5C4636;">신랑 전영준</div>
+            <div style="display:flex;gap:8px;">
+              <a href="{{ gTel }}" style="width:70px;height:34px;display:flex;align-items:center;justify-content:center;border:1px solid #E4D7C7;font-size:12px;color:#5C4636;">전화</a>
+              <a href="{{ gSms }}" style="width:70px;height:34px;display:flex;align-items:center;justify-content:center;border:1px solid #E4D7C7;font-size:12px;color:#5C4636;">문자</a>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 0;border-top:1px dashed #EDE3D6;">
+            <div style="font-size:13px;color:#5C4636;">아버지 전효상</div>
+            <div style="display:flex;gap:8px;">
+              <a href="{{ gfTel }}" style="width:70px;height:34px;display:flex;align-items:center;justify-content:center;border:1px solid #E4D7C7;font-size:12px;color:#5C4636;">전화</a>
+              <a href="{{ gfSms }}" style="width:70px;height:34px;display:flex;align-items:center;justify-content:center;border:1px solid #E4D7C7;font-size:12px;color:#5C4636;">문자</a>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 0;border-top:1px dashed #EDE3D6;">
+            <div style="font-size:13px;color:#5C4636;">어머니 김서영</div>
+            <div style="display:flex;gap:8px;">
+              <a href="{{ gmTel }}" style="width:70px;height:34px;display:flex;align-items:center;justify-content:center;border:1px solid #E4D7C7;font-size:12px;color:#5C4636;">전화</a>
+              <a href="{{ gmSms }}" style="width:70px;height:34px;display:flex;align-items:center;justify-content:center;border:1px solid #E4D7C7;font-size:12px;color:#5C4636;">문자</a>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+      <button onClick="{{ toggleBrideTel }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:none;border:none;border-top:1px solid #F1E8DC;font-family:'Gowun Batang',serif;font-size:14.5px;color:#3E2E24;cursor:pointer;letter-spacing:.04em;">
+        <span>신부측에 연락하기</span>
+        <span style="font-size:12px;color:#B7A38E;">{{ brideTelIcon }}</span>
+      </button>
+      <sc-if value="{{ brideTelOpen }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:0 20px 16px;display:flex;flex-direction:column;font-family:'Noto Sans KR',sans-serif;">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 0;border-top:1px dashed #EDE3D6;">
+            <div style="font-size:13px;color:#5C4636;">신부 김가희</div>
+            <div style="display:flex;gap:8px;">
+              <a href="{{ bTel }}" style="width:70px;height:34px;display:flex;align-items:center;justify-content:center;border:1px solid #E4D7C7;font-size:12px;color:#5C4636;">전화</a>
+              <a href="{{ bSms }}" style="width:70px;height:34px;display:flex;align-items:center;justify-content:center;border:1px solid #E4D7C7;font-size:12px;color:#5C4636;">문자</a>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 0;border-top:1px dashed #EDE3D6;">
+            <div style="font-size:13px;color:#5C4636;">아버지 김상윤</div>
+            <div style="display:flex;gap:8px;">
+              <a href="{{ bfTel }}" style="width:70px;height:34px;display:flex;align-items:center;justify-content:center;border:1px solid #E4D7C7;font-size:12px;color:#5C4636;">전화</a>
+              <a href="{{ bfSms }}" style="width:70px;height:34px;display:flex;align-items:center;justify-content:center;border:1px solid #E4D7C7;font-size:12px;color:#5C4636;">문자</a>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 0;border-top:1px dashed #EDE3D6;">
+            <div style="font-size:13px;color:#5C4636;">어머니 윤영자</div>
+            <div style="display:flex;gap:8px;">
+              <a href="{{ bmTel }}" style="width:70px;height:34px;display:flex;align-items:center;justify-content:center;border:1px solid #E4D7C7;font-size:12px;color:#5C4636;">전화</a>
+              <a href="{{ bmSms }}" style="width:70px;height:34px;display:flex;align-items:center;justify-content:center;border:1px solid #E4D7C7;font-size:12px;color:#5C4636;">문자</a>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+
+  <div style="padding:0 26px 58px;text-align:center;">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.42em;color:#A8917C;margin-bottom:8px;">NOVEMBER 2026</div>
+    <div style="font-size:20px;letter-spacing:.04em;margin-bottom:6px;">2026년 11월 7일 토요일</div>
+    <div style="font-size:14.5px;color:#9A8571;letter-spacing:.02em;margin-bottom:28px;">오전 11시 40분</div>
+
+    <div style="background:#FFFDFA url('assets/paper.png') repeat;border:1px solid #EDE3D6;padding:22px 16px 18px;">
+      <div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));font-size:11.5px;letter-spacing:.1em;color:#B7A38E;padding-bottom:12px;border-bottom:1px solid #F1E8DC;font-family:'Noto Sans KR',sans-serif;">
+        <div style="color:#C88C7E;">SUN</div><div>MON</div><div>TUE</div><div>WED</div><div>THU</div><div>FRI</div><div>SAT</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:2px;padding-top:10px;font-family:'Noto Sans KR',sans-serif;font-size:14px;">
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;color:#C88C7E;">1</div>
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;">2</div>
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;">3</div>
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;">4</div>
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;">5</div>
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;">6</div>
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;position:relative;">
+          <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:32px;color:#DE8C7E;animation:beat 1.9s ease-in-out infinite;">♥</span>
+          <span style="position:relative;color:#FFFFFF;font-weight:500;">7</span>
+        </div>
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;color:#C88C7E;">8</div>
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;">9</div>
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;">10</div>
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;">11</div>
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;">12</div>
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;">13</div>
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;">14</div>
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;color:#C88C7E;">15</div>
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;">16</div>
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;">17</div>
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;">18</div>
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;">19</div>
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;">20</div>
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;">21</div>
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;color:#C88C7E;">22</div>
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;">23</div>
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;">24</div>
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;">25</div>
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;">26</div>
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;">27</div>
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;">28</div>
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;color:#C88C7E;">29</div>
+        <div style="height:38px;display:flex;align-items:center;justify-content:center;">30</div>
+      </div>
+      <div style="margin-top:14px;padding-top:14px;border-top:1px solid #F1E8DC;font-size:13px;color:#9A8571;font-family:'Noto Sans KR',sans-serif;">{{ countdownText }}</div>
+    </div>
+  </div>
+
+  <div style="padding:0 22px 58px;">
+    <div style="text-align:center;margin-bottom:30px;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.42em;color:#A8917C;">OUR STORY</div>
+      <div style="font-size:18px;margin-top:8px;letter-spacing:.04em;">우리의 히스토리</div>
+    </div>
+
+    <div style="position:relative;display:flex;flex-direction:column;gap:26px;">
+      <div style="position:absolute;left:50%;top:10px;bottom:10px;width:1px;background:#E4D7C7;"></div>
+
+      <div style="position:relative;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;">
+        <div style="min-width:0;">
+          <div style="aspect-ratio:4/3;position:relative;min-width:0;overflow:hidden;box-shadow:0 6px 16px rgba(62,46,36,.14);">
+            <image-slot id="h01" shape="rect" placeholder="첫 만남"></image-slot>
+            <button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:28px;height:28px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:12px;line-height:1;cursor:pointer;padding:0;">⤢</button>
+          </div>
+          <div style="text-align:center;font-family:'Noto Sans KR',sans-serif;font-size:12px;color:#A8917C;letter-spacing:.08em;margin-top:12px;">2022</div>
+        </div>
+        <div style="text-align:center;min-width:0;">
+          <div style="font-size:15.5px;letter-spacing:.03em;">첫 만남</div>
+          <div style="font-family:'Noto Sans KR',sans-serif;font-size:13px;color:#8A7360;line-height:1.9;margin-top:10px;">처음 마주한 그날부터<br />함께 걷기 시작했어요.</div>
+        </div>
+        <div style="position:absolute;left:50%;top:50%;width:7px;height:7px;border-radius:50%;background:#C88C7E;transform:translate(-50%,-50%);"></div>
+      </div>
+
+      <div style="position:relative;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;">
+        <div style="text-align:center;min-width:0;">
+          <div style="font-size:15.5px;letter-spacing:.03em;">1주년</div>
+          <div style="font-family:'Noto Sans KR',sans-serif;font-size:13px;color:#8A7360;line-height:1.9;margin-top:10px;">첫 번째 계절을<br />함께 지나왔어요.</div>
+        </div>
+        <div style="min-width:0;">
+          <div style="aspect-ratio:4/3;position:relative;min-width:0;overflow:hidden;box-shadow:0 6px 16px rgba(62,46,36,.14);">
+            <image-slot id="h02" shape="rect" placeholder="1주년"></image-slot>
+            <button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:28px;height:28px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:12px;line-height:1;cursor:pointer;padding:0;">⤢</button>
+          </div>
+          <div style="text-align:center;font-family:'Noto Sans KR',sans-serif;font-size:12px;color:#A8917C;letter-spacing:.08em;margin-top:12px;">2023</div>
+        </div>
+        <div style="position:absolute;left:50%;top:50%;width:7px;height:7px;border-radius:50%;background:#C88C7E;transform:translate(-50%,-50%);"></div>
+      </div>
+
+      <div style="position:relative;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;">
+        <div style="min-width:0;">
+          <div style="aspect-ratio:4/3;position:relative;min-width:0;overflow:hidden;box-shadow:0 6px 16px rgba(62,46,36,.14);">
+            <image-slot id="h03" shape="rect" placeholder="2주년"></image-slot>
+            <button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:28px;height:28px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:12px;line-height:1;cursor:pointer;padding:0;">⤢</button>
+          </div>
+          <div style="text-align:center;font-family:'Noto Sans KR',sans-serif;font-size:12px;color:#A8917C;letter-spacing:.08em;margin-top:12px;">2024</div>
+        </div>
+        <div style="text-align:center;min-width:0;">
+          <div style="font-size:15.5px;letter-spacing:.03em;">2주년</div>
+          <div style="font-family:'Noto Sans KR',sans-serif;font-size:13px;color:#8A7360;line-height:1.9;margin-top:10px;">두 번째 계절도<br />나란히 걸었어요.</div>
+        </div>
+        <div style="position:absolute;left:50%;top:50%;width:7px;height:7px;border-radius:50%;background:#C88C7E;transform:translate(-50%,-50%);"></div>
+      </div>
+
+      <div style="position:relative;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;">
+        <div style="text-align:center;min-width:0;">
+          <div style="font-size:15.5px;letter-spacing:.03em;">프러포즈</div>
+          <div style="font-family:'Noto Sans KR',sans-serif;font-size:13px;color:#8A7360;line-height:1.9;margin-top:10px;">평생을 함께하기로<br />약속했어요.</div>
+        </div>
+        <div style="min-width:0;">
+          <div style="aspect-ratio:4/3;position:relative;min-width:0;overflow:hidden;box-shadow:0 6px 16px rgba(62,46,36,.14);">
+            <image-slot id="h04" shape="rect" placeholder="프러포즈"></image-slot>
+            <button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:28px;height:28px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:12px;line-height:1;cursor:pointer;padding:0;">⤢</button>
+          </div>
+          <div style="text-align:center;font-family:'Noto Sans KR',sans-serif;font-size:12px;color:#A8917C;letter-spacing:.08em;margin-top:12px;">2026.05</div>
+        </div>
+        <div style="position:absolute;left:50%;top:50%;width:7px;height:7px;border-radius:50%;background:#C88C7E;transform:translate(-50%,-50%);"></div>
+      </div>
+
+      <div style="position:relative;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;">
+        <div style="min-width:0;">
+          <div style="aspect-ratio:4/3;position:relative;min-width:0;overflow:hidden;box-shadow:0 6px 16px rgba(62,46,36,.14);">
+            <image-slot id="h05" shape="rect" placeholder="웨딩"></image-slot>
+            <button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:28px;height:28px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:12px;line-height:1;cursor:pointer;padding:0;">⤢</button>
+          </div>
+          <div style="text-align:center;font-family:'Noto Sans KR',sans-serif;font-size:12px;color:#A8917C;letter-spacing:.08em;margin-top:12px;">2026.11</div>
+        </div>
+        <div style="text-align:center;min-width:0;">
+          <div style="font-size:15.5px;letter-spacing:.03em;">Wedding Day</div>
+          <div style="font-family:'Noto Sans KR',sans-serif;font-size:13px;color:#8A7360;line-height:1.9;margin-top:10px;">저희는 이 날,<br />부부가 됩니다.</div>
+        </div>
+        <div style="position:absolute;left:50%;top:50%;width:9px;height:9px;border-radius:50%;background:#DE8C7E;box-shadow:0 0 0 4px rgba(222,140,126,.18);transform:translate(-50%,-50%);"></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:0 0 58px;">
+    <div style="text-align:center;margin-bottom:24px;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.42em;color:#A8917C;">GALLERY</div>
+      <div style="font-size:18px;margin-top:8px;letter-spacing:.04em;">우리의 순간들</div>
+    </div>
+    <div ref="{{ galleryRef }}" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;padding:0 18px;">
+      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;"><image-slot id="g01" shape="rect" src="assets/p01.jpg" placeholder="1"></image-slot><button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:30px;height:30px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:13px;line-height:1;cursor:pointer;padding:0;">⤢</button></div>
+      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;"><image-slot id="g02" shape="rect" src="assets/p02.jpg" placeholder="2"></image-slot><button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:30px;height:30px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:13px;line-height:1;cursor:pointer;padding:0;">⤢</button></div>
+      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;"><image-slot id="g03" shape="rect" placeholder="3"></image-slot><button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:30px;height:30px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:13px;line-height:1;cursor:pointer;padding:0;">⤢</button></div>
+      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;"><image-slot id="g04" shape="rect" placeholder="4"></image-slot><button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:30px;height:30px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:13px;line-height:1;cursor:pointer;padding:0;">⤢</button></div>
+      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;"><image-slot id="g05" shape="rect" placeholder="5"></image-slot><button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:30px;height:30px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:13px;line-height:1;cursor:pointer;padding:0;">⤢</button></div>
+      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;"><image-slot id="g06" shape="rect" placeholder="6"></image-slot><button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:30px;height:30px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:13px;line-height:1;cursor:pointer;padding:0;">⤢</button></div>
+      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;"><image-slot id="g07" shape="rect" placeholder="7"></image-slot><button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:30px;height:30px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:13px;line-height:1;cursor:pointer;padding:0;">⤢</button></div>
+      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;"><image-slot id="g08" shape="rect" placeholder="8"></image-slot><button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:30px;height:30px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:13px;line-height:1;cursor:pointer;padding:0;">⤢</button></div>
+      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;"><image-slot id="g09" shape="rect" placeholder="9"></image-slot><button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:30px;height:30px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:13px;line-height:1;cursor:pointer;padding:0;">⤢</button></div>
+      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;"><image-slot id="g10" shape="rect" placeholder="10"></image-slot><button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:30px;height:30px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:13px;line-height:1;cursor:pointer;padding:0;">⤢</button></div>
+      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;"><image-slot id="g11" shape="rect" placeholder="11"></image-slot><button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:30px;height:30px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:13px;line-height:1;cursor:pointer;padding:0;">⤢</button></div>
+      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;"><image-slot id="g12" shape="rect" placeholder="12"></image-slot><button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:30px;height:30px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:13px;line-height:1;cursor:pointer;padding:0;">⤢</button></div>
+    </div>
+  </div>
+
+  <div style="padding:0 26px 58px;">
+    <div style="text-align:center;margin-bottom:24px;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.42em;color:#A8917C;">LOCATION</div>
+      <div style="font-size:18px;margin-top:8px;letter-spacing:.04em;">오시는 길</div>
+    </div>
+    <div style="text-align:center;margin-bottom:20px;">
+      <div style="font-size:17px;letter-spacing:.02em;">더베뉴지 서울 1층 아트홀</div>
+      <div style="font-size:13.5px;color:#9A8571;margin-top:8px;font-family:'Noto Sans KR',sans-serif;">서울 강서구 강서로 388</div>
+    </div>
+    <div style="position:relative;width:100%;aspect-ratio:4/3;border:1px solid #EDE3D6;min-width:0;overflow:hidden;">
+      <image-slot id="venuemap" shape="rect" src="assets/map.jpg" fit="contain" placeholder="지도 캡처 이미지"></image-slot>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px;">
+      <a href="https://kko.to/zi4EWGBcFT" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;height:46px;border:1px solid #E4D7C7;background:#FFFDFA url('assets/paper.png') repeat;font-size:13px;font-family:'Noto Sans KR',sans-serif;color:#5C4636;" style-hover="background:#F5EDE3;">카카오맵</a>
+      <a href="https://naver.me/x5GojlWc" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;height:46px;border:1px solid #E4D7C7;background:#FFFDFA url('assets/paper.png') repeat;font-size:13px;font-family:'Noto Sans KR',sans-serif;color:#5C4636;" style-hover="background:#F5EDE3;">네이버지도</a>
+      <a href="tmap://search?name=%EB%8D%94%EB%B2%A0%EB%89%B4%EC%A7%80%EC%84%9C%EC%9A%B8" style="display:flex;align-items:center;justify-content:center;height:46px;border:1px solid #E4D7C7;background:#FFFDFA url('assets/paper.png') repeat;font-size:13px;font-family:'Noto Sans KR',sans-serif;color:#5C4636;" style-hover="background:#F5EDE3;">T맵</a>
+    </div>
+    <div style="margin-top:26px;display:flex;flex-direction:column;gap:16px;font-family:'Noto Sans KR',sans-serif;font-size:13px;line-height:1.9;color:#6B5646;">
+      <div>
+        <div style="font-weight:500;color:#3E2E24;letter-spacing:.06em;margin-bottom:4px;">지하철</div>
+        <div>5호선 발산역 4번 출구 도보 4분</div>
+      </div>
+      <div>
+        <div style="font-weight:500;color:#3E2E24;letter-spacing:.06em;margin-bottom:4px;">주차</div>
+        <div>건물 내 주차장 이용 (2시간 무료)</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:0 26px 64px;">
+    <div style="text-align:center;margin-bottom:24px;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:.42em;color:#A8917C;">ACCOUNT</div>
+      <div style="font-size:18px;margin-top:8px;letter-spacing:.04em;">마음 전하실 곳</div>
+      <div style="font-size:13px;color:#9A8571;margin-top:10px;font-family:'Noto Sans KR',sans-serif;line-height:1.8;">참석이 어려우신 분들을 위해<br />계좌번호를 안내드립니다.</div>
+    </div>
+
+    <div style="border:1px solid #EDE3D6;background:#FFFDFA url('assets/paper.png') repeat;">
+      <button onClick="{{ toggleGroom }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:18px 20px;background:none;border:none;font-family:'Gowun Batang',serif;font-size:15px;color:#3E2E24;cursor:pointer;letter-spacing:.04em;">
+        <span>신랑측 계좌번호</span>
+        <span style="font-size:12px;color:#B7A38E;">{{ groomIcon }}</span>
+      </button>
+      <sc-if value="{{ groomOpen }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:0 20px 18px;display:flex;flex-direction:column;font-family:'Noto Sans KR',sans-serif;">
+          <div style="padding:14px 0;border-top:1px dashed #EDE3D6;display:flex;align-items:flex-end;justify-content:space-between;gap:10px;">
+            <div>
+              <div style="font-size:12px;color:#A8917C;letter-spacing:.06em;">신랑 전영준</div>
+              <div style="font-size:14px;color:#3E2E24;margin-top:6px;">{{ groomAcc }}</div>
+            </div>
+            <button onClick="{{ copyGroom }}" style="flex:none;height:32px;padding:0 14px;white-space:nowrap;border:1px solid #E4D7C7;background:#FFF;font-size:12px;color:#5C4636;cursor:pointer;">복사</button>
+          </div>
+          <div style="padding:14px 0;border-top:1px dashed #EDE3D6;display:flex;align-items:flex-end;justify-content:space-between;gap:10px;">
+            <div>
+              <div style="font-size:12px;color:#A8917C;letter-spacing:.06em;">아버지 전효상</div>
+              <div style="font-size:14px;color:#3E2E24;margin-top:6px;">{{ groomFatherAcc }}</div>
+            </div>
+            <button onClick="{{ copyGroomFather }}" style="flex:none;height:32px;padding:0 14px;white-space:nowrap;border:1px solid #E4D7C7;background:#FFF;font-size:12px;color:#5C4636;cursor:pointer;">복사</button>
+          </div>
+          <div style="padding:14px 0 0;border-top:1px dashed #EDE3D6;display:flex;align-items:flex-end;justify-content:space-between;gap:10px;">
+            <div>
+              <div style="font-size:12px;color:#A8917C;letter-spacing:.06em;">어머니 김서영</div>
+              <div style="font-size:14px;color:#3E2E24;margin-top:6px;">{{ groomMotherAcc }}</div>
+            </div>
+            <button onClick="{{ copyGroomMother }}" style="flex:none;height:32px;padding:0 14px;white-space:nowrap;border:1px solid #E4D7C7;background:#FFF;font-size:12px;color:#5C4636;cursor:pointer;">복사</button>
+          </div>
+        </div>
+      </sc-if>
+
+      <button onClick="{{ toggleBride }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:18px 20px;background:none;border:none;border-top:1px solid #F1E8DC;font-family:'Gowun Batang',serif;font-size:15px;color:#3E2E24;cursor:pointer;letter-spacing:.04em;">
+        <span>신부측 계좌번호</span>
+        <span style="font-size:12px;color:#B7A38E;">{{ brideIcon }}</span>
+      </button>
+      <sc-if value="{{ brideOpen }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:0 20px 18px;display:flex;flex-direction:column;font-family:'Noto Sans KR',sans-serif;">
+          <div style="padding:14px 0;border-top:1px dashed #EDE3D6;display:flex;align-items:flex-end;justify-content:space-between;gap:10px;">
+            <div>
+              <div style="font-size:12px;color:#A8917C;letter-spacing:.06em;">신부 김가희</div>
+              <div style="font-size:14px;color:#3E2E24;margin-top:6px;">{{ brideAcc }}</div>
+            </div>
+            <button onClick="{{ copyBride }}" style="flex:none;height:32px;padding:0 14px;white-space:nowrap;border:1px solid #E4D7C7;background:#FFF;font-size:12px;color:#5C4636;cursor:pointer;">복사</button>
+          </div>
+          <div style="padding:14px 0;border-top:1px dashed #EDE3D6;display:flex;align-items:flex-end;justify-content:space-between;gap:10px;">
+            <div>
+              <div style="font-size:12px;color:#A8917C;letter-spacing:.06em;">아버지 김상윤</div>
+              <div style="font-size:14px;color:#3E2E24;margin-top:6px;">{{ brideFatherAcc }}</div>
+            </div>
+            <button onClick="{{ copyBrideFather }}" style="flex:none;height:32px;padding:0 14px;white-space:nowrap;border:1px solid #E4D7C7;background:#FFF;font-size:12px;color:#5C4636;cursor:pointer;">복사</button>
+          </div>
+          <div style="padding:14px 0 0;border-top:1px dashed #EDE3D6;display:flex;align-items:flex-end;justify-content:space-between;gap:10px;">
+            <div>
+              <div style="font-size:12px;color:#A8917C;letter-spacing:.06em;">어머니 윤영자</div>
+              <div style="font-size:14px;color:#3E2E24;margin-top:6px;">{{ brideMotherAcc }}</div>
+            </div>
+            <button onClick="{{ copyBrideMother }}" style="flex:none;height:32px;padding:0 14px;white-space:nowrap;border:1px solid #E4D7C7;background:#FFF;font-size:12px;color:#5C4636;cursor:pointer;">복사</button>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+
+  <div style="background:#F3ECE3 url('assets/paper.png') repeat;padding:44px 26px 52px;text-align:center;">
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:#8A7360;letter-spacing:.02em;">Thank you</div>
+    <div style="font-size:13.5px;color:#8A7360;margin-top:14px;line-height:2;font-family:'Noto Sans KR',sans-serif;">저희의 시작을 함께해 주세요.<br />2026. 11. 07  AM 11:40</div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:28px;">
+      <button onClick="{{ share }}" style="height:46px;border:1px solid #DDCDB9;background:#FFFDFA url('assets/paper.png') repeat;font-family:'Noto Sans KR',sans-serif;font-size:13px;color:#5C4636;cursor:pointer;">카카오톡 공유</button>
+      <button onClick="{{ copyLink }}" style="height:46px;border:1px solid #DDCDB9;background:#FFFDFA url('assets/paper.png') repeat;font-family:'Noto Sans KR',sans-serif;font-size:13px;color:#5C4636;cursor:pointer;">링크 복사</button>
+    </div>
+    <div style="font-size:12px;color:#A8917C;margin-top:12px;min-height:16px;font-family:'Noto Sans KR',sans-serif;">{{ toast }}</div>
+  </div>
+
+  {{ lightbox }}
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:430,&quot;height&quot;:1200},&quot;bgmUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;배경음악&quot;},&quot;groomAcc&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;신한은행 110-360-041336&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;신랑측 계좌&quot;},&quot;groomFatherAcc&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;농협 2040-52-52-079558&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;신랑측 계좌&quot;},&quot;groomMotherAcc&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;신한은행 110-144-301115&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;신랑측 계좌&quot;},&quot;brideAcc&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;신한은행 110-523-272340&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;신부측 계좌&quot;},&quot;brideFatherAcc&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;국민은행 856901-00-029258&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;신부측 계좌&quot;},&quot;brideMotherAcc&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;농협 352-0926-0443-13&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;신부측 계좌&quot;},&quot;groomPhone&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;010-0000-0000&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;연락처&quot;},&quot;groomFatherPhone&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;010-0000-0000&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;연락처&quot;},&quot;groomMotherPhone&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;010-0000-0000&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;연락처&quot;},&quot;bridePhone&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;010-0000-0000&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;연락처&quot;},&quot;brideFatherPhone&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;010-0000-0000&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;연락처&quot;},&quot;brideMotherPhone&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;010-0000-0000&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;연락처&quot;}}">
+class Component extends DCLogic {
+  state = {
+    groomOpen: false, brideOpen: false,
+    groomTelOpen: false, brideTelOpen: false,
+    lightboxSrc: null, bgmOn: false, toast: ""
+  };
+
+  constructor(props) {
+    super(props);
+    this.galleryRef = React.createRef();
+  }
+
+  componentDidMount() {
+    this._onGridClick = (e) => {
+      const t = e.target;
+      const btn = t && t.closest && t.closest("[data-zoom]");
+      if (!btn) return;
+      e.preventDefault();
+      e.stopPropagation();
+      const slot = btn.parentElement && btn.parentElement.querySelector("image-slot");
+      const img = slot && (slot.shadowRoot ? slot.shadowRoot.querySelector("img") : slot.querySelector("img"));
+      const src = (img && img.src) || (slot && slot.getAttribute("src"));
+      if (src) this.setState({ lightboxSrc: src });
+      else this.flash("사진을 먼저 넣어 주세요.");
+    };
+    document.addEventListener("click", this._onGridClick, true);
+    this.audio = new Audio();
+    this.audio.loop = true;
+  }
+
+  componentWillUnmount() {
+    if (this._onGridClick) document.removeEventListener("click", this._onGridClick, true);
+    if (this.audio) this.audio.pause();
+  }
+
+  lightboxEl() {
+    const src = this.state.lightboxSrc;
+    if (!src) return null;
+    const close = () => this.setState({ lightboxSrc: null });
+    return React.createElement(
+      "div",
+      { onClick: close, style: { position: "fixed", inset: 0, zIndex: 80, background: "rgba(28,20,15,.92)", display: "flex", alignItems: "center", justifyContent: "center", padding: "24px", cursor: "zoom-out" } },
+      React.createElement("img", { src: src, alt: "", style: { maxWidth: "100%", maxHeight: "100%", objectFit: "contain" } }),
+      React.createElement("button", { onClick: close, style: { position: "absolute", top: 16, right: 18, width: 36, height: 36, border: "none", background: "none", color: "#FFF", fontSize: 22, cursor: "pointer" } }, "×")
+    );
+  }
+
+  flash(msg) {
+    this.setState({ toast: msg });
+    clearTimeout(this._t);
+    this._t = setTimeout(() => this.setState({ toast: "" }), 2400);
+  }
+
+  copy(text) {
+    if (navigator.clipboard) navigator.clipboard.writeText(text).catch(() => {});
+    this.flash("복사되었습니다: " + text);
+  }
+
+  toggleBgm = () => {
+    const url = this.props.bgmUrl;
+    if (!url) { this.flash("배경음악 파일(mp3)을 넣어 주세요."); return; }
+    if (this.state.bgmOn) { this.audio.pause(); this.setState({ bgmOn: false }); return; }
+    if (this.audio.src !== url) this.audio.src = url;
+    this.audio.play().then(() => this.setState({ bgmOn: true })).catch(() => this.flash("재생할 수 없습니다."));
+  };
+
+  countdown() {
+    const target = new Date(2026, 10, 7, 11, 40);
+    const days = Math.ceil((target - new Date()) / 86400000);
+    if (days > 0) return "전영준 ♥ 김가희의 결혼식까지 " + days + "일 남았습니다.";
+    if (days === 0) return "오늘은 전영준 ♥ 김가희의 결혼식입니다.";
+    return "전영준 ♥ 김가희, 함께한 " + Math.abs(days) + "일";
+  }
+
+  renderVals() {
+    const p = this.props;
+    const s = this.state;
+    const tel = (n) => "tel:" + String(n).replace(/[^0-9+]/g, "");
+    const sms = (n) => "sms:" + String(n).replace(/[^0-9+]/g, "");
+    const acc = {
+      groomAcc: p.groomAcc ?? "신한은행 110-360-041336",
+      groomFatherAcc: p.groomFatherAcc ?? "농협 2040-52-52-079558",
+      groomMotherAcc: p.groomMotherAcc ?? "신한은행 110-144-301115",
+      brideAcc: p.brideAcc ?? "신한은행 110-523-272340",
+      brideFatherAcc: p.brideFatherAcc ?? "국민은행 856901-00-029258",
+      brideMotherAcc: p.brideMotherAcc ?? "농협 352-0926-0443-13"
+    };
+    const ph = {
+      g: p.groomPhone ?? "010-0000-0000",
+      gf: p.groomFatherPhone ?? "010-0000-0000",
+      gm: p.groomMotherPhone ?? "010-0000-0000",
+      b: p.bridePhone ?? "010-0000-0000",
+      bf: p.brideFatherPhone ?? "010-0000-0000",
+      bm: p.brideMotherPhone ?? "010-0000-0000"
+    };
+    return Object.assign({}, acc, {
+      countdownText: this.countdown(),
+      galleryRef: this.galleryRef,
+      toast: s.toast,
+      lightbox: this.lightboxEl(),
+      bgmIcon: s.bgmOn ? "❙❙" : "♪",
+      toggleBgm: this.toggleBgm,
+      groomOpen: s.groomOpen,
+      brideOpen: s.brideOpen,
+      groomIcon: s.groomOpen ? "닫기 −" : "열기 +",
+      brideIcon: s.brideOpen ? "닫기 −" : "열기 +",
+      toggleGroom: () => this.setState(x => ({ groomOpen: !x.groomOpen })),
+      toggleBride: () => this.setState(x => ({ brideOpen: !x.brideOpen })),
+      groomTelOpen: s.groomTelOpen,
+      brideTelOpen: s.brideTelOpen,
+      groomTelIcon: s.groomTelOpen ? "닫기 −" : "열기 +",
+      brideTelIcon: s.brideTelOpen ? "닫기 −" : "열기 +",
+      toggleGroomTel: () => this.setState(x => ({ groomTelOpen: !x.groomTelOpen })),
+      toggleBrideTel: () => this.setState(x => ({ brideTelOpen: !x.brideTelOpen })),
+      gTel: tel(ph.g), gSms: sms(ph.g),
+      gfTel: tel(ph.gf), gfSms: sms(ph.gf),
+      gmTel: tel(ph.gm), gmSms: sms(ph.gm),
+      bTel: tel(ph.b), bSms: sms(ph.b),
+      bfTel: tel(ph.bf), bfSms: sms(ph.bf),
+      bmTel: tel(ph.bm), bmSms: sms(ph.bm),
+      copyGroom: () => this.copy(acc.groomAcc),
+      copyGroomFather: () => this.copy(acc.groomFatherAcc),
+      copyGroomMother: () => this.copy(acc.groomMotherAcc),
+      copyBride: () => this.copy(acc.brideAcc),
+      copyBrideFather: () => this.copy(acc.brideFatherAcc),
+      copyBrideMother: () => this.copy(acc.brideMotherAcc),
+      copyLink: () => this.copy(location.href),
+      share: () => {
+        const data = { title: "전영준 ♥ 김가희 결혼식에 초대합니다", text: "2026. 11. 07 (토) 오전 11:40 · 더베뉴지 서울 1층 아트홀", url: location.href };
+        if (navigator.share) navigator.share(data).catch(() => {});
+        else this.copy(location.href);
+      }
+    });
+  }
+}
+</script>
+</body>
+</html>
