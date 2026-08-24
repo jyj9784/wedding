@@ -14,7 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Cinzel:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
 <script src="./image-slot.js"></script>
 <style>
-  html, body { margin:0; padding:0; background:#E7DFD4; }
+  html, body { margin:0; padding:0; background:#E7DFD4; scroll-behavior:smooth; }
   * { box-sizing:border-box; }
   a { color:#8A5A46; text-decoration:none; }
   a:hover { color:#5C3A2C; }
@@ -23,6 +23,13 @@
 </helmet>
 <div style="min-height:100%;background:#E7DFD4 url('assets/paper.png') repeat;display:flex;justify-content:center;font-family:'Gowun Batang',serif;color:#3E2E24;">
 <div style="width:100%;max-width:430px;background:#FBF8F4 url('assets/paper.png') repeat;box-shadow:0 0 40px rgba(62,46,36,.12);overflow:hidden;position:relative;">
+
+  <div style="position:sticky;top:0;z-index:15;display:grid;grid-template-columns:repeat(4,1fr);background:#FBF8F4 url('assets/paper.png') repeat;border-bottom:1px solid #EDE3D6;">
+    <a href="#contact" style="display:flex;align-items:center;justify-content:center;height:44px;font-family:'Noto Sans KR',sans-serif;font-size:12.5px;color:#5C4636;letter-spacing:.02em;">연락</a>
+    <a href="#date" style="display:flex;align-items:center;justify-content:center;height:44px;font-family:'Noto Sans KR',sans-serif;font-size:12.5px;color:#5C4636;letter-spacing:.02em;border-left:1px solid #EDE3D6;">날짜</a>
+    <a href="#loc" style="display:flex;align-items:center;justify-content:center;height:44px;font-family:'Noto Sans KR',sans-serif;font-size:12.5px;color:#5C4636;letter-spacing:.02em;border-left:1px solid #EDE3D6;">위치</a>
+    <a href="#account" style="display:flex;align-items:center;justify-content:center;height:44px;font-family:'Noto Sans KR',sans-serif;font-size:12.5px;color:#5C4636;letter-spacing:.02em;border-left:1px solid #EDE3D6;">계좌번호</a>
+  </div>
 
   <div style="position:relative;width:100%;">
     <img src="assets/hero.png" alt="전영준 김가희 결혼합니다" style="display:block;width:100%;height:auto;" />
@@ -56,7 +63,7 @@
     </div>
   </div>
 
-  <div style="padding:0 26px 56px;">
+  <div id="contact" style="padding:0 26px 56px;scroll-margin-top:52px;">
     <div style="border:1px solid #EDE3D6;background:#FFFDFA url('assets/paper.png') repeat;">
       <button onClick="{{ toggleGroomTel }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:none;border:none;font-family:'Gowun Batang',serif;font-size:14.5px;color:#3E2E24;cursor:pointer;letter-spacing:.04em;">
         <span>신랑측에 연락하기</span>
@@ -119,7 +126,7 @@
     </div>
   </div>
 
-  <div style="padding:0 26px 58px;text-align:center;">
+  <div id="date" style="padding:0 26px 58px;text-align:center;scroll-margin-top:52px;">
     <div style="font-family:'Cinzel',serif;font-weight:600;font-size:12px;letter-spacing:.38em;color:#5C3A2C;margin-bottom:8px;">NOVEMBER 2026</div>
     <div style="font-size:20px;letter-spacing:.04em;margin-bottom:6px;">2026년 11월 7일 토요일</div>
     <div style="font-size:14.5px;color:#9A8571;letter-spacing:.02em;margin-bottom:28px;">오전 11시 40분</div>
@@ -167,6 +174,35 @@
     </div>
   </div>
 
+  <div id="loc" style="padding:0 26px 58px;scroll-margin-top:52px;">
+    <div style="text-align:center;margin-bottom:24px;">
+      <div style="font-family:'Cinzel',serif;font-weight:600;font-size:12px;letter-spacing:.38em;color:#5C3A2C;">LOCATION</div>
+      <div style="font-size:18px;margin-top:8px;letter-spacing:.04em;">오시는 길</div>
+    </div>
+    <div style="text-align:center;margin-bottom:20px;">
+      <div style="font-size:17px;letter-spacing:.02em;">더베뉴지 서울 1층 아트홀</div>
+      <div style="font-size:13.5px;color:#9A8571;margin-top:8px;font-family:'Noto Sans KR',sans-serif;">서울 강서구 강서로 388</div>
+    </div>
+    <div style="position:relative;width:100%;aspect-ratio:4/3;border:1px solid #EDE3D6;min-width:0;overflow:hidden;">
+      <image-slot id="venuemap" shape="rect" src="assets/map.jpg" fit="contain" placeholder="지도 캡처 이미지"></image-slot>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px;">
+      <a href="https://kko.to/zi4EWGBcFT" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;height:46px;border:1px solid #E4D7C7;background:#FFFDFA url('assets/paper.png') repeat;font-size:13px;font-family:'Noto Sans KR',sans-serif;color:#5C4636;" style-hover="background:#F5EDE3;">카카오맵</a>
+      <a href="https://naver.me/x5GojlWc" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;height:46px;border:1px solid #E4D7C7;background:#FFFDFA url('assets/paper.png') repeat;font-size:13px;font-family:'Noto Sans KR',sans-serif;color:#5C4636;" style-hover="background:#F5EDE3;">네이버지도</a>
+      <a href="tmap://search?name=%EB%8D%94%EB%B2%A0%EB%89%B4%EC%A7%80%EC%84%9C%EC%9A%B8" style="display:flex;align-items:center;justify-content:center;height:46px;border:1px solid #E4D7C7;background:#FFFDFA url('assets/paper.png') repeat;font-size:13px;font-family:'Noto Sans KR',sans-serif;color:#5C4636;" style-hover="background:#F5EDE3;">T맵</a>
+    </div>
+    <div style="margin-top:26px;display:flex;flex-direction:column;gap:16px;font-family:'Noto Sans KR',sans-serif;font-size:13px;line-height:1.9;color:#6B5646;">
+      <div>
+        <div style="font-weight:500;color:#3E2E24;letter-spacing:.06em;margin-bottom:4px;">지하철</div>
+        <div>5호선 발산역 3번 출구 도보 4분</div>
+      </div>
+      <div>
+        <div style="font-weight:500;color:#3E2E24;letter-spacing:.06em;margin-bottom:4px;">주차</div>
+        <div>건물 내 주차장 이용 (2시간 무료)</div>
+      </div>
+    </div>
+  </div>
+
   <div style="padding:0 0 58px;">
     <div style="text-align:center;margin-bottom:24px;">
       <div style="font-family:'Cinzel',serif;font-weight:600;font-size:12px;letter-spacing:.38em;color:#5C3A2C;">GALLERY</div>
@@ -196,14 +232,16 @@
 
     <div data-group="history" style="position:relative;">
       <div style="position:absolute;left:9px;top:6px;bottom:6px;width:1px;background:#E4D7C7;"></div>
-      <div style="display:flex;flex-direction:column;gap:34px;">
+      <div style="display:flex;flex-direction:column;gap:40px;">
 
         <div style="display:grid;grid-template-columns:20px 1fr;column-gap:14px;">
           <div style="padding-top:4px;"><div style="width:7px;height:7px;border-radius:50%;background:#C88C7E;margin:0 auto;"></div></div>
           <div>
             <div style="font-family:'Cinzel',serif;font-weight:600;font-size:12px;letter-spacing:.12em;color:#5C3A2C;min-height:15px;margin-bottom:10px;">2023.02</div>
-            <div style="aspect-ratio:4/3;position:relative;min-width:0;">
-              <div style="position:absolute;inset:0;overflow:hidden;cursor:pointer;box-shadow:0 6px 16px rgba(62,46,36,.14);"><image-slot id="h01" shape="rect" src="assets/h01.jpg" placeholder="1"></image-slot></div>
+            <div style="aspect-ratio:4/3;position:relative;min-width:0;margin:0 12px;">
+              <div style="position:absolute;inset:0;overflow:hidden;cursor:pointer;box-shadow:0 6px 16px rgba(62,46,36,.14);transform:rotate(6deg) translate(5%,-4%);z-index:1;"><image-slot id="h1_3" shape="rect" src="assets/story1-3.jpg" placeholder="3"></image-slot></div>
+              <div style="position:absolute;inset:0;overflow:hidden;cursor:pointer;box-shadow:0 6px 16px rgba(62,46,36,.14);transform:rotate(-5deg) translate(-5%,4%);z-index:2;"><image-slot id="h1_2" shape="rect" src="assets/story1-2.jpg" placeholder="2"></image-slot></div>
+              <div style="position:absolute;inset:0;overflow:hidden;cursor:pointer;box-shadow:0 6px 16px rgba(62,46,36,.14);z-index:3;"><image-slot id="h1_1" shape="rect" src="assets/story1-1.jpg" placeholder="1"></image-slot></div>
             </div>
           </div>
         </div>
@@ -212,8 +250,11 @@
           <div style="padding-top:4px;"><div style="width:7px;height:7px;border-radius:50%;background:#C88C7E;margin:0 auto;"></div></div>
           <div>
             <div style="font-family:'Cinzel',serif;font-weight:600;font-size:12px;letter-spacing:.12em;color:#5C3A2C;min-height:15px;margin-bottom:10px;"></div>
-            <div style="aspect-ratio:4/3;position:relative;min-width:0;">
-              <div style="position:absolute;inset:0;overflow:hidden;cursor:pointer;box-shadow:0 6px 16px rgba(62,46,36,.14);"><image-slot id="h02" shape="rect" src="assets/h02.jpg" placeholder="2"></image-slot></div>
+            <div style="aspect-ratio:4/3;position:relative;min-width:0;margin:0 12px;">
+              <div style="position:absolute;inset:0;overflow:hidden;cursor:pointer;box-shadow:0 6px 16px rgba(62,46,36,.14);transform:rotate(-8deg) translate(-7%,-5%);z-index:1;"><image-slot id="h2_4" shape="rect" src="assets/story2-4.jpg" placeholder="4"></image-slot></div>
+              <div style="position:absolute;inset:0;overflow:hidden;cursor:pointer;box-shadow:0 6px 16px rgba(62,46,36,.14);transform:rotate(6deg) translate(6%,-3%);z-index:2;"><image-slot id="h2_3" shape="rect" src="assets/story2-3.jpg" placeholder="3"></image-slot></div>
+              <div style="position:absolute;inset:0;overflow:hidden;cursor:pointer;box-shadow:0 6px 16px rgba(62,46,36,.14);transform:rotate(-4deg) translate(-4%,4%);z-index:3;"><image-slot id="h2_2" shape="rect" src="assets/story2-2.jpg" placeholder="2"></image-slot></div>
+              <div style="position:absolute;inset:0;overflow:hidden;cursor:pointer;box-shadow:0 6px 16px rgba(62,46,36,.14);z-index:4;"><image-slot id="h2_1" shape="rect" src="assets/story2-1.jpg" placeholder="1"></image-slot></div>
             </div>
           </div>
         </div>
@@ -222,8 +263,10 @@
           <div style="padding-top:4px;"><div style="width:7px;height:7px;border-radius:50%;background:#C88C7E;margin:0 auto;"></div></div>
           <div>
             <div style="font-family:'Cinzel',serif;font-weight:600;font-size:12px;letter-spacing:.12em;color:#5C3A2C;min-height:15px;margin-bottom:10px;"></div>
-            <div style="aspect-ratio:4/3;position:relative;min-width:0;">
-              <div style="position:absolute;inset:0;overflow:hidden;cursor:pointer;box-shadow:0 6px 16px rgba(62,46,36,.14);"><image-slot id="h03" shape="rect" src="assets/h03.jpg" placeholder="3"></image-slot></div>
+            <div style="aspect-ratio:4/3;position:relative;min-width:0;margin:0 12px;">
+              <div style="position:absolute;inset:0;overflow:hidden;cursor:pointer;box-shadow:0 6px 16px rgba(62,46,36,.14);transform:rotate(6deg) translate(5%,-4%);z-index:1;"><image-slot id="h3_3" shape="rect" src="assets/story3-3.jpg" placeholder="3"></image-slot></div>
+              <div style="position:absolute;inset:0;overflow:hidden;cursor:pointer;box-shadow:0 6px 16px rgba(62,46,36,.14);transform:rotate(-5deg) translate(-5%,4%);z-index:2;"><image-slot id="h3_2" shape="rect" src="assets/story3-2.jpg" placeholder="2"></image-slot></div>
+              <div style="position:absolute;inset:0;overflow:hidden;cursor:pointer;box-shadow:0 6px 16px rgba(62,46,36,.14);z-index:3;"><image-slot id="h3_1" shape="rect" src="assets/story3-1.jpg" placeholder="1"></image-slot></div>
             </div>
           </div>
         </div>
@@ -232,8 +275,10 @@
           <div style="padding-top:4px;"><div style="width:7px;height:7px;border-radius:50%;background:#DE8C7E;margin:0 auto;box-shadow:0 0 0 4px rgba(222,140,126,.18);"></div></div>
           <div>
             <div style="font-family:'Cinzel',serif;font-weight:600;font-size:12px;letter-spacing:.12em;color:#5C3A2C;min-height:15px;margin-bottom:10px;"></div>
-            <div style="aspect-ratio:4/3;position:relative;min-width:0;">
-              <div style="position:absolute;inset:0;overflow:hidden;cursor:pointer;box-shadow:0 6px 16px rgba(62,46,36,.14);"><image-slot id="h04" shape="rect" src="assets/h04.jpg" placeholder="4"></image-slot></div>
+            <div style="aspect-ratio:4/3;position:relative;min-width:0;margin:0 12px;">
+              <div style="position:absolute;inset:0;overflow:hidden;cursor:pointer;box-shadow:0 6px 16px rgba(62,46,36,.14);transform:rotate(6deg) translate(5%,-4%);z-index:1;"><image-slot id="h4_3" shape="rect" src="assets/story4-3.jpg" placeholder="3"></image-slot></div>
+              <div style="position:absolute;inset:0;overflow:hidden;cursor:pointer;box-shadow:0 6px 16px rgba(62,46,36,.14);transform:rotate(-5deg) translate(-5%,4%);z-index:2;"><image-slot id="h4_2" shape="rect" src="assets/story4-2.jpg" placeholder="2"></image-slot></div>
+              <div style="position:absolute;inset:0;overflow:hidden;cursor:pointer;box-shadow:0 6px 16px rgba(62,46,36,.14);z-index:3;"><image-slot id="h4_1" shape="rect" src="assets/story4-1.jpg" placeholder="1"></image-slot></div>
             </div>
           </div>
         </div>
@@ -242,36 +287,7 @@
     </div>
   </div>
 
-  <div style="padding:0 26px 58px;">
-    <div style="text-align:center;margin-bottom:24px;">
-      <div style="font-family:'Cinzel',serif;font-weight:600;font-size:12px;letter-spacing:.38em;color:#5C3A2C;">LOCATION</div>
-      <div style="font-size:18px;margin-top:8px;letter-spacing:.04em;">오시는 길</div>
-    </div>
-    <div style="text-align:center;margin-bottom:20px;">
-      <div style="font-size:17px;letter-spacing:.02em;">더베뉴지 서울 1층 아트홀</div>
-      <div style="font-size:13.5px;color:#9A8571;margin-top:8px;font-family:'Noto Sans KR',sans-serif;">서울 강서구 강서로 388</div>
-    </div>
-    <div style="position:relative;width:100%;aspect-ratio:4/3;border:1px solid #EDE3D6;min-width:0;overflow:hidden;">
-      <image-slot id="venuemap" shape="rect" src="assets/map.jpg" fit="contain" placeholder="지도 캡처 이미지"></image-slot>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px;">
-      <a href="https://kko.to/zi4EWGBcFT" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;height:46px;border:1px solid #E4D7C7;background:#FFFDFA url('assets/paper.png') repeat;font-size:13px;font-family:'Noto Sans KR',sans-serif;color:#5C4636;" style-hover="background:#F5EDE3;">카카오맵</a>
-      <a href="https://naver.me/x5GojlWc" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;height:46px;border:1px solid #E4D7C7;background:#FFFDFA url('assets/paper.png') repeat;font-size:13px;font-family:'Noto Sans KR',sans-serif;color:#5C4636;" style-hover="background:#F5EDE3;">네이버지도</a>
-      <a href="tmap://search?name=%EB%8D%94%EB%B2%A0%EB%89%B4%EC%A7%80%EC%84%9C%EC%9A%B8" style="display:flex;align-items:center;justify-content:center;height:46px;border:1px solid #E4D7C7;background:#FFFDFA url('assets/paper.png') repeat;font-size:13px;font-family:'Noto Sans KR',sans-serif;color:#5C4636;" style-hover="background:#F5EDE3;">T맵</a>
-    </div>
-    <div style="margin-top:26px;display:flex;flex-direction:column;gap:16px;font-family:'Noto Sans KR',sans-serif;font-size:13px;line-height:1.9;color:#6B5646;">
-      <div>
-        <div style="font-weight:500;color:#3E2E24;letter-spacing:.06em;margin-bottom:4px;">지하철</div>
-        <div>5호선 발산역 3번 출구 도보 4분</div>
-      </div>
-      <div>
-        <div style="font-weight:500;color:#3E2E24;letter-spacing:.06em;margin-bottom:4px;">주차</div>
-        <div>건물 내 주차장 이용 (2시간 무료)</div>
-      </div>
-    </div>
-  </div>
-
-  <div style="padding:0 26px 64px;">
+  <div id="account" style="padding:0 26px 64px;scroll-margin-top:52px;">
     <div style="text-align:center;margin-bottom:24px;">
       <div style="font-family:'Cinzel',serif;font-weight:600;font-size:12px;letter-spacing:.38em;color:#5C3A2C;">ACCOUNT</div>
       <div style="font-size:18px;margin-top:8px;letter-spacing:.04em;">마음 전하실 곳</div>
