@@ -344,10 +344,10 @@
       <button onClick="{{ share }}" style="height:46px;border:1px solid #DDCDB9;background:#FFFDFA url('assets/paper.png') repeat;font-family:'Noto Sans KR',sans-serif;font-size:13px;color:#5C4636;cursor:pointer;">카카오톡 공유</button>
       <button onClick="{{ copyLink }}" style="height:46px;border:1px solid #DDCDB9;background:#FFFDFA url('assets/paper.png') repeat;font-family:'Noto Sans KR',sans-serif;font-size:13px;color:#5C4636;cursor:pointer;">링크 복사</button>
     </div>
-    <div style="font-size:12px;color:#A8917C;margin-top:12px;min-height:16px;font-family:'Noto Sans KR',sans-serif;">{{ toast }}</div>
   </div>
 
   {{ lightbox }}
+  {{ toastEl }}
 
 </div>
 </div>
@@ -445,6 +445,24 @@ class Component extends DCLogic {
     this._t = setTimeout(() => this.setState({ toast: "" }), 2400);
   }
 
+  toastEl() {
+    const msg = this.state.toast;
+    if (!msg) return null;
+    return React.createElement(
+      "div",
+      {
+        style: {
+          position: "fixed", left: "50%", bottom: 28, transform: "translateX(-50%)",
+          zIndex: 90, maxWidth: "86%", textAlign: "center", pointerEvents: "none",
+          background: "rgba(28,20,15,.88)", color: "#FFF", fontSize: 13,
+          padding: "10px 18px", borderRadius: 999, fontFamily: "'Noto Sans KR',sans-serif",
+          boxShadow: "0 6px 20px rgba(0,0,0,.25)"
+        }
+      },
+      msg
+    );
+  }
+
   copy(text) {
     if (navigator.clipboard) navigator.clipboard.writeText(text).catch(() => {});
     this.flash("복사되었습니다: " + text);
@@ -490,8 +508,8 @@ class Component extends DCLogic {
     return Object.assign({}, acc, {
       countdownText: this.countdown(),
       galleryRef: this.galleryRef,
-      toast: s.toast,
       lightbox: this.lightboxEl(),
+      toastEl: this.toastEl(),
       bgmIcon: s.bgmOn ? "❙❙" : "♪",
       toggleBgm: this.toggleBgm,
       groomOpen: s.groomOpen,
