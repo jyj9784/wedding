@@ -173,14 +173,13 @@
       <div style="font-size:18px;margin-top:8px;letter-spacing:.04em;">우리의 히스토리</div>
     </div>
 
-    <div style="position:relative;display:flex;flex-direction:column;gap:26px;">
+    <div data-group="history" style="position:relative;display:flex;flex-direction:column;gap:26px;">
       <div style="position:absolute;left:50%;top:10px;bottom:10px;width:1px;background:#E4D7C7;"></div>
 
       <div style="position:relative;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;">
         <div style="min-width:0;">
           <div style="aspect-ratio:4/3;position:relative;min-width:0;overflow:hidden;box-shadow:0 6px 16px rgba(62,46,36,.14);">
-            <image-slot id="h01" shape="rect" placeholder="첫 만남"></image-slot>
-            <button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:28px;height:28px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:12px;line-height:1;cursor:pointer;padding:0;">⤢</button>
+            <image-slot id="h01" shape="rect" placeholder="첫 만남" style="cursor:pointer;"></image-slot>
           </div>
         </div>
         <div style="text-align:center;min-width:0;">
@@ -197,8 +196,7 @@
         </div>
         <div style="min-width:0;">
           <div style="aspect-ratio:4/3;position:relative;min-width:0;overflow:hidden;box-shadow:0 6px 16px rgba(62,46,36,.14);">
-            <image-slot id="h02" shape="rect" placeholder="1주년"></image-slot>
-            <button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:28px;height:28px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:12px;line-height:1;cursor:pointer;padding:0;">⤢</button>
+            <image-slot id="h02" shape="rect" placeholder="1주년" style="cursor:pointer;"></image-slot>
           </div>
         </div>
         <div style="position:absolute;left:50%;top:50%;width:7px;height:7px;border-radius:50%;background:#C88C7E;transform:translate(-50%,-50%);"></div>
@@ -207,8 +205,7 @@
       <div style="position:relative;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;">
         <div style="min-width:0;">
           <div style="aspect-ratio:4/3;position:relative;min-width:0;overflow:hidden;box-shadow:0 6px 16px rgba(62,46,36,.14);">
-            <image-slot id="h03" shape="rect" placeholder="2주년"></image-slot>
-            <button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:28px;height:28px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:12px;line-height:1;cursor:pointer;padding:0;">⤢</button>
+            <image-slot id="h03" shape="rect" placeholder="2주년" style="cursor:pointer;"></image-slot>
           </div>
         </div>
         <div style="text-align:center;min-width:0;">
@@ -225,19 +222,19 @@
       <div style="font-family:'Cinzel',serif;font-weight:600;font-size:12px;letter-spacing:.38em;color:#5C3A2C;">GALLERY</div>
       <div style="font-size:18px;margin-top:8px;letter-spacing:.04em;">우리의 순간들</div>
     </div>
-    <div ref="{{ galleryRef }}" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;padding:0 18px;">
-      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;"><image-slot id="g01" shape="rect" src="assets/p01.jpg" placeholder="1"></image-slot><button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:30px;height:30px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:13px;line-height:1;cursor:pointer;padding:0;">⤢</button></div>
-      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;"><image-slot id="g02" shape="rect" src="assets/p02.jpg" placeholder="2"></image-slot><button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:30px;height:30px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:13px;line-height:1;cursor:pointer;padding:0;">⤢</button></div>
-      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;"><image-slot id="g03" shape="rect" placeholder="3"></image-slot><button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:30px;height:30px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:13px;line-height:1;cursor:pointer;padding:0;">⤢</button></div>
-      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;"><image-slot id="g04" shape="rect" placeholder="4"></image-slot><button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:30px;height:30px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:13px;line-height:1;cursor:pointer;padding:0;">⤢</button></div>
-      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;"><image-slot id="g05" shape="rect" placeholder="5"></image-slot><button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:30px;height:30px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:13px;line-height:1;cursor:pointer;padding:0;">⤢</button></div>
-      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;"><image-slot id="g06" shape="rect" placeholder="6"></image-slot><button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:30px;height:30px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:13px;line-height:1;cursor:pointer;padding:0;">⤢</button></div>
-      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;"><image-slot id="g07" shape="rect" placeholder="7"></image-slot><button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:30px;height:30px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:13px;line-height:1;cursor:pointer;padding:0;">⤢</button></div>
-      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;"><image-slot id="g08" shape="rect" placeholder="8"></image-slot><button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:30px;height:30px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:13px;line-height:1;cursor:pointer;padding:0;">⤢</button></div>
-      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;"><image-slot id="g09" shape="rect" placeholder="9"></image-slot><button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:30px;height:30px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:13px;line-height:1;cursor:pointer;padding:0;">⤢</button></div>
-      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;"><image-slot id="g10" shape="rect" placeholder="10"></image-slot><button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:30px;height:30px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:13px;line-height:1;cursor:pointer;padding:0;">⤢</button></div>
-      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;"><image-slot id="g11" shape="rect" placeholder="11"></image-slot><button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:30px;height:30px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:13px;line-height:1;cursor:pointer;padding:0;">⤢</button></div>
-      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;"><image-slot id="g12" shape="rect" placeholder="12"></image-slot><button data-zoom="1" title="크게 보기" style="position:absolute;right:0;bottom:0;width:30px;height:30px;border:none;background:rgba(62,46,36,.42);color:#FFF;font-size:13px;line-height:1;cursor:pointer;padding:0;">⤢</button></div>
+    <div ref="{{ galleryRef }}" data-group="gallery" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;padding:0 18px;">
+      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;cursor:pointer;"><image-slot id="g01" shape="rect" src="assets/p01.jpg" placeholder="1"></image-slot></div>
+      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;cursor:pointer;"><image-slot id="g02" shape="rect" src="assets/p02.jpg" placeholder="2"></image-slot></div>
+      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;cursor:pointer;"><image-slot id="g03" shape="rect" placeholder="3"></image-slot></div>
+      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;cursor:pointer;"><image-slot id="g04" shape="rect" placeholder="4"></image-slot></div>
+      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;cursor:pointer;"><image-slot id="g05" shape="rect" placeholder="5"></image-slot></div>
+      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;cursor:pointer;"><image-slot id="g06" shape="rect" placeholder="6"></image-slot></div>
+      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;cursor:pointer;"><image-slot id="g07" shape="rect" placeholder="7"></image-slot></div>
+      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;cursor:pointer;"><image-slot id="g08" shape="rect" placeholder="8"></image-slot></div>
+      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;cursor:pointer;"><image-slot id="g09" shape="rect" placeholder="9"></image-slot></div>
+      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;cursor:pointer;"><image-slot id="g10" shape="rect" placeholder="10"></image-slot></div>
+      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;cursor:pointer;"><image-slot id="g11" shape="rect" placeholder="11"></image-slot></div>
+      <div style="aspect-ratio:3/4;position:relative;min-width:0;overflow:hidden;cursor:pointer;"><image-slot id="g12" shape="rect" placeholder="12"></image-slot></div>
     </div>
   </div>
 
@@ -360,7 +357,7 @@ class Component extends DCLogic {
   state = {
     groomOpen: false, brideOpen: false,
     groomTelOpen: false, brideTelOpen: false,
-    lightboxSrc: null, bgmOn: false, toast: ""
+    lightboxList: null, lightboxIndex: 0, bgmOn: false, toast: ""
   };
 
   constructor(props) {
@@ -368,18 +365,25 @@ class Component extends DCLogic {
     this.galleryRef = React.createRef();
   }
 
+  _slotSrc(slot) {
+    const img = slot && (slot.shadowRoot ? slot.shadowRoot.querySelector("img") : slot.querySelector("img"));
+    return (img && img.src) || (slot && slot.getAttribute("src")) || null;
+  }
+
   componentDidMount() {
     this._onGridClick = (e) => {
       const t = e.target;
-      const btn = t && t.closest && t.closest("[data-zoom]");
-      if (!btn) return;
+      const slotEl = t && t.closest && t.closest("image-slot");
+      if (!slotEl) return;
+      const groupEl = slotEl.closest("[data-group]");
+      if (!groupEl) return;
+      const mySrc = this._slotSrc(slotEl);
+      if (!mySrc) return;
       e.preventDefault();
       e.stopPropagation();
-      const slot = btn.parentElement && btn.parentElement.querySelector("image-slot");
-      const img = slot && (slot.shadowRoot ? slot.shadowRoot.querySelector("img") : slot.querySelector("img"));
-      const src = (img && img.src) || (slot && slot.getAttribute("src"));
-      if (src) this.setState({ lightboxSrc: src });
-      else this.flash("사진을 먼저 넣어 주세요.");
+      const list = Array.from(groupEl.querySelectorAll("image-slot")).map((s) => this._slotSrc(s)).filter(Boolean);
+      const idx = list.indexOf(mySrc);
+      this.setState({ lightboxList: list, lightboxIndex: idx < 0 ? 0 : idx });
     };
     document.addEventListener("click", this._onGridClick, true);
     this.audio = new Audio();
@@ -392,13 +396,38 @@ class Component extends DCLogic {
   }
 
   lightboxEl() {
-    const src = this.state.lightboxSrc;
-    if (!src) return null;
-    const close = () => this.setState({ lightboxSrc: null });
+    const { lightboxList, lightboxIndex } = this.state;
+    if (!lightboxList || !lightboxList.length) return null;
+    const src = lightboxList[lightboxIndex];
+    const many = lightboxList.length > 1;
+    const close = () => this.setState({ lightboxList: null, lightboxIndex: 0 });
+    const go = (delta) => {
+      this.setState((s) => {
+        const n = s.lightboxList.length;
+        return { lightboxIndex: (s.lightboxIndex + delta + n) % n };
+      });
+    };
+    const arrowStyle = (side) => ({
+      position: "absolute", top: "50%", [side]: 10, transform: "translateY(-50%)",
+      width: 40, height: 40, borderRadius: "50%", border: "none",
+      background: "rgba(255,255,255,.16)", color: "#FFF", fontSize: 22, lineHeight: 1, cursor: "pointer"
+    });
     return React.createElement(
       "div",
-      { onClick: close, style: { position: "fixed", inset: 0, zIndex: 80, background: "rgba(28,20,15,.92)", display: "flex", alignItems: "center", justifyContent: "center", padding: "24px", cursor: "zoom-out" } },
+      {
+        onClick: close,
+        onTouchStart: (e) => { this._touchX = e.touches[0].clientX; },
+        onTouchEnd: (e) => {
+          if (this._touchX == null) return;
+          const dx = e.changedTouches[0].clientX - this._touchX;
+          this._touchX = null;
+          if (many && Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
+        },
+        style: { position: "fixed", inset: 0, zIndex: 80, background: "rgba(28,20,15,.92)", display: "flex", alignItems: "center", justifyContent: "center", padding: "24px", cursor: "zoom-out" }
+      },
       React.createElement("img", { src: src, alt: "", style: { maxWidth: "100%", maxHeight: "100%", objectFit: "contain" } }),
+      many && React.createElement("button", { onClick: (e) => { e.stopPropagation(); go(-1); }, style: arrowStyle("left") }, "‹"),
+      many && React.createElement("button", { onClick: (e) => { e.stopPropagation(); go(1); }, style: arrowStyle("right") }, "›"),
       React.createElement("button", { onClick: close, style: { position: "absolute", top: 16, right: 18, width: 36, height: 36, border: "none", background: "none", color: "#FFF", fontSize: 22, cursor: "pointer" } }, "×")
     );
   }

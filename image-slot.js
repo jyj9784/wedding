@@ -568,7 +568,13 @@
       this._subFn = () => this._render();
       // Shadow-DOM listeners live with the shadow DOM — bound once here so
       // disconnect/reconnect (e.g. React remount) doesn't stack handlers.
-      this._empty.addEventListener('click', () => this._input.click());
+      // Ungated, this would let a read-only share-link visitor tap an empty
+      // slot and get a native file picker with nowhere to save the result —
+      // gate it the same as the other mutating controls.
+      this._empty.addEventListener('click', () => {
+        if (!this.hasAttribute('data-editable')) return;
+        this._input.click();
+      });
       root.addEventListener('click', (e) => {
         const act = e.target && e.target.getAttribute && e.target.getAttribute('data-act');
         if (!act) return;
